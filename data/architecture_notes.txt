@@ -1,21 +1,7 @@
-Software Architecture Guidelines
+Modern application architecture should separate product-facing clients, backend APIs, background jobs, relational storage, object storage, and observability concerns. A FastAPI backend works well as a stateless API layer behind nginx or a managed load balancer. React should call the API through a typed client and avoid embedding secrets.
 
-1. Use React or Next.js for frontend applications.
+Recommended boundaries include an API layer for request validation, a service layer for business logic, a repository layer for persistence, and a schema layer for request and response models. Use environment-based configuration and keep runtime secrets outside source control.
 
-2. Use Node.js, Java Spring Boot, or Python FastAPI for backend services.
+Authentication commonly uses short-lived access JWTs, refresh token rotation, hashed passwords, role-based authorization, and audit logging for sensitive actions. Production systems should enforce HTTPS, CORS allowlists, rate limiting, structured logs, health checks, and database backups.
 
-3. PostgreSQL is recommended for transactional systems.
-
-4. Redis should be used for caching frequently accessed data.
-
-5. Docker should be used for containerization.
-
-6. JWT should be used for authentication.
-
-7. REST APIs should follow standard naming conventions.
-
-8. Cloud deployment can use AWS, Azure, or GCP.
-
-9. Microservices are suitable for large-scale applications.
-
-10. Monolith architecture is suitable for small MVPs.
+Scaling starts with stateless app containers, database indexing, pagination, and caching for read-heavy endpoints. Background processing can be added for email, notifications, media processing, reporting, and integrations.

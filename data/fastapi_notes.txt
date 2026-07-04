@@ -1,0 +1,7 @@
+FastAPI projects are easiest to maintain when organized by responsibility. A common structure is app/main.py for the ASGI app, app/core for configuration and security, app/db for database sessions, app/models for SQLAlchemy models, app/schemas for Pydantic schemas, app/api for routers, and app/services for business logic.
+
+Use dependency injection for database sessions and authenticated users. Keep route handlers thin by delegating work to services. Use Pydantic response models to prevent accidental data exposure. Add exception handlers for validation errors, domain errors, and unexpected server errors.
+
+JWT authentication should hash passwords with bcrypt or argon2, issue short-lived access tokens, validate token signature and expiry, and load the current user through a reusable dependency. CRUD APIs should implement pagination, filtering, consistent status codes, and authorization checks at the resource boundary.
+
+Alembic should manage all schema migrations. Application startup should not silently create production tables because migrations need review and repeatability.

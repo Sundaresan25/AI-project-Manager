@@ -1,0 +1,5 @@
+React applications should use a predictable folder structure with pages, components, hooks, services, routes, and shared UI primitives. Routing should protect authenticated screens and redirect unauthenticated users to sign in. Dashboard pages should support loading, empty, error, and success states.
+
+Authentication UI normally includes login, registration, password reset, session persistence, and profile or account screens. Store tokens carefully and prefer secure HTTP-only cookies when the backend supports them. If bearer tokens are used in the browser, keep lifetimes short and handle refresh centrally.
+
+API access should be centralized in a client module with typed request and response shapes. Forms should validate client-side for speed while still relying on backend validation for authority. Components should be accessible, responsive, keyboard-friendly, and resilient to slow networks.

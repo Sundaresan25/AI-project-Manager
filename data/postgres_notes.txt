@@ -1,0 +1,5 @@
+PostgreSQL is a strong default for transactional applications. Use UUID primary keys when records may be created across distributed systems or exposed externally. Use foreign keys, unique constraints, check constraints, and indexes to protect data integrity and query performance.
+
+Common audit fields include created_at, updated_at, created_by, and updated_by. Soft deletes can be useful when records need recovery or auditability, but they require filtered indexes and consistent query rules. High-volume tables should be paginated and indexed according to actual query patterns.
+
+Use migrations for every schema change. Backups should be automated, periodically restored in a test environment, and retained according to business requirements. Production credentials should be unique per environment and rotated when compromised.

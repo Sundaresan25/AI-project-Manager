@@ -1,5 +1,6 @@
-crewai
+crewai==1.14.7
 crewai-tools
 chromadb
 sentence-transformers
 python-dotenv
+pydantic

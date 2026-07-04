@@ -1,0 +1,5 @@
+Docker images should be small, reproducible, and explicit about runtime commands. Python services commonly use slim base images, a non-root user, a requirements install layer, and uvicorn or gunicorn with uvicorn workers. Frontend applications commonly build static assets with Node and serve them from nginx.
+
+docker-compose is useful for local development with services such as API, web, PostgreSQL, Redis, and worker containers. Health checks help Compose and deployment platforms understand readiness. Named volumes should hold database data.
+
+nginx can terminate TLS or sit behind managed TLS, serve frontend assets, proxy API requests, enforce body size limits, and add security headers. CI/CD should run linting, tests, image builds, vulnerability scans, migrations, and staged deployments.
