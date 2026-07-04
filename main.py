@@ -1,16 +1,18 @@
 from crewai import Task, Crew, LLM
-
+from dotenv import load_dotenv
 from agents.business import get_business_agent
 from agents.architect import get_architect_agent
-
+import os
 from rag import rag_tool
+load_dotenv()
+
 
 # =========================
 # LLM (IMPORTANT FIX)
 # =========================
 llm = LLM(
     model="gemini/gemini-2.5-flash",
-    api_key="AIzaSyAVNeFdX_Re8LpKyMmOEnJamUtuZuYN9-E"
+    api_key=os.getenv("GEMINI_API_KEY")
 )
 
 project_name = input("Enter Project Name: ")

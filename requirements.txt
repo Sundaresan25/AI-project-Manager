@@ -1,0 +1,5 @@
+crewai
+crewai-tools
+chromadb
+sentence-transformers
+python-dotenv
